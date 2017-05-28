@@ -13,5 +13,5 @@ import dagger.Component;
 @CustomScope
 @Component(dependencies = NetComponent.class, modules = MainViewModule.class)
 public interface MainViewComponent {
-    void inject(MainActivity activity);
+    MainActivity inject(MainActivity activity);
 }

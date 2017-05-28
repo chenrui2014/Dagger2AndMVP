@@ -3,7 +3,6 @@ package com.chrisventura.apps.dragger2mvp.data.modules;
 import com.chrisventura.apps.dragger2mvp.data.net.PostApiService;
 import com.chrisventura.apps.dragger2mvp.util.CustomScope;
 import com.chrisventura.apps.dragger2mvp.view.presenter.MainContract;
-import com.chrisventura.apps.dragger2mvp.view.presenter.MainPresenter;
 
 import dagger.Module;
 import dagger.Provides;
@@ -33,10 +32,4 @@ public class MainViewModule {
         return retrofit.create(PostApiService.class);
     }
 
-
-    @Provides
-    @CustomScope
-    public MainPresenter providesMainPresenter(PostApiService apiService) {
-        return new MainPresenter(mView, apiService);
-    }
 }

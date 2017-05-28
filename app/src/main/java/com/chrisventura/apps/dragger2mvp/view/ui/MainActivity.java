@@ -20,8 +20,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View {
-    @Inject
-    MainPresenter mPresenter;
+    @Inject MainPresenter mPresenter;
 
     ListView mListView;
 
@@ -37,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 .mainViewModule(new MainViewModule(this))
                 .build()
                 .inject(this);
+
+        mPresenter.setView(this);
 
         setupList();
         mPresenter.loadPosts();

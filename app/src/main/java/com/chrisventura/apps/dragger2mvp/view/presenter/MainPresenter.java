@@ -15,15 +15,18 @@ import rx.schedulers.Schedulers;
  * Created by ventu on 28/5/2017.
  */
 
-public class MainPresenter implements MainContract.Presenter {
+public class MainPresenter implements MainContract.Presenter<MainContract.View> {
     MainContract.View mView;
     PostApiService apiService;
 
-    public MainPresenter(MainContract.View view, PostApiService apiService) {
+    @Inject MainPresenter(PostApiService apiService) {
         this.apiService = apiService;
-        this.mView = view;
     }
 
+    @Override
+    public void setView(MainContract.View view) {
+        this.mView = view;
+    }
 
     @Override
     public void loadPosts() {

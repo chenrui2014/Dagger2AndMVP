@@ -17,7 +17,8 @@ public class MainContract {
         void showComplete();
     }
 
-    public interface Presenter {
+    public interface Presenter<T> {
+        void setView(T view);
         void loadPosts();
     }
 }
